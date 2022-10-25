@@ -14,6 +14,9 @@ public class CharacterController2D : MonoBehaviour
     public Camera mainCamera;
     public KeyCode shoot = KeyCode.E;
 
+    public float kickback = -500;
+
+
     bool facingRight = true;
     float moveDirection = 0;
     bool isGrounded = false;
@@ -92,6 +95,7 @@ public class CharacterController2D : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(BulletPrefab, LaunchOffset.position, transform.rotation);
+            r2d.AddForce(transform.right * kickback);
         }
 
     }
